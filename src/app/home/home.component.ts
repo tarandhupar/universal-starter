@@ -9,4 +9,9 @@ import { Component } from '@angular/core';
   templateUrl: 'home.template.html'
 })
 export class Home {
+	public name: string = 'John';
+
+  sayHello(): string {
+    return `Hello ${this.name}`;
+  }
 }

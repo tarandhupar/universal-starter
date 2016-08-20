@@ -1,6 +1,7 @@
 // the polyfills must be the first thing imported in node.js
 // import 'angular2-universal/polyfills'; // polyfills are moved to server.ts
-
+import 'zone.js/dist/zone';
+import 'reflect-metadata';
 
 // Angular 2 Universal
 import {

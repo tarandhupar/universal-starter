@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var commonConfig = {
   resolve: {
@@ -11,10 +12,19 @@ var commonConfig = {
       { test: /\.ts$/, loaders: ['ts-loader', 'angular2-template-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
       { test: /\.css$/, loader: 'raw-loader' },
-      { test: /\.json$/, loader: 'raw-loader' }
+      { test: /\.json$/, loader: 'raw-loader' },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader'
+      }
     ],
   },
   plugins: [
+    new CopyWebpackPlugin([
+        { from: 'node_modules/samwds/dist/fonts', to: 'fonts' },
+        { from: 'src/assets', to: 'assets/img' }
+      ])
   ]
 
 };
